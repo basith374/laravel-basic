@@ -17,7 +17,7 @@ class AdminController extends Controller
 	}
 
 	public function getSettings() {
-		$settings = Settings::lists('value', 'name')->all();
+		$settings = Setting::lists('value', 'name')->all();
 		return view('admin.settings', compact('settings'));
 	}
 
@@ -46,10 +46,10 @@ class AdminController extends Controller
 		return redirect('/admin/settings#seo')->withSuccess('Seo updated');
 	}
 	private function updateSettings($request) {
-		$settings = Settings::lists('name')->all();
+		$settings = Setting::lists('name')->all();
 		foreach($request->all() as $key => $value) {
 			if(in_array($key, $settings)) {
-				Settings::whereName($key)->update(['value' => $value]);
+				Setting::whereName($key)->update(['value' => $value]);
 			}
 		}
 	}
