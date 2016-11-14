@@ -221,6 +221,11 @@ ul.alert-dropdown {
 
 /* MY STUFF */
 
+.toolbar {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
 .page-header {
     margin-top: 20px;
 }
