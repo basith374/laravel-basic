@@ -12,7 +12,7 @@ class MinimalSeeder extends Seeder
     public function run()
     {
     	DB::table('users')->delete();
-        User::create(['username' => 'admin', 'password' => bcrypt('admin')]);
+        App\User::create(['username' => 'admin', 'password' => bcrypt('admin')]);
         DB::table('settings')->delete();
     	DB::table('settings')->insert([
         	['name' => 'telephone', 'value' => '0497-123456'],
