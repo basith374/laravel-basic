@@ -13,7 +13,7 @@ use App\Mail\ContactMail;
 class HomeController extends Controller
 {
     
-    public function migrate() {
+    public function getMigrate() {
     	Artisan::call('migrate', ['--seed' => '']);
     	echo 'migrated&seeded';
     }
