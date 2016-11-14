@@ -48,7 +48,7 @@
           </tr>
           <tr>
             <td align="center">
-              <p style="color:#ccc;font-size:11px;">Next Home Interior</p>
+              <p style="color:#ccc;font-size:11px;">This message was sent using the website contact form.</p>
             </td>
           </tr>
         </table>
