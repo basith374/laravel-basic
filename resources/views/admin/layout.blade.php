@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf_token" content="{{ csrf_token() }}">
 
-    <title>Next Home | @yield('title')</title>
+    <title>Brand | @yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
