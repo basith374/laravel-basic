@@ -32,7 +32,7 @@ class AuthController extends Controller
     
     protected $username = 'username';
 
-    protected $loginView = 'admin.login';
+    protected $loginView = 'login';
 
     /**
      * Create a new authentication controller instance.
