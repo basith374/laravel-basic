@@ -16,8 +16,8 @@ class MinimalSeeder extends Seeder
         DB::table('settings')->delete();
     	DB::table('settings')->insert([
         	['name' => 'telephone', 'value' => '0497-123456'],
-        	['name' => 'mobile', 'value' => '098950 97971'],
-        	['name' => 'email', 'value' => 'info@rotanarestaurant.in'],
+        	['name' => 'mobile', 'value' => '09876 543 210'],
+        	['name' => 'email', 'value' => 'info@brand.com'],
         	['name' => 'social', 'value' => '[{"id":"facebook","icon":"/img/social/facebook.png","label":"Facebook"},{"id":"twitter","icon":"/img/social/twitter.png","label":"Twitter"},{"id":"google","icon":"/img/social/google-plus.png","label":"Google Plus"},{"id":"pinterest","icon":"/img/social/pinterest.png","label":"Pinterest"},{"id":"instagram","icon":"/img/social/instagram.png","label":"Instagram"},{"id":"linkedin","icon":"/img/social/linkedin.png","label":"LinkedIn"}]'],
             ['name' => 'facebook', 'value' => ''],
             ['name' => 'twitter', 'value' => ''],
