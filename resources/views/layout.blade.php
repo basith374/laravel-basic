@@ -30,13 +30,13 @@
         <title>Example | @yield('title')</title>
         <link rel="icon" href="{{ asset('/favicon.png') }}">
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="{{ asset('/apple-touch-icon.png') }}">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         {{-- <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"> --}}
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="{{ asset('/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
         @yield('head')
     </head>
     <body>
@@ -47,7 +47,7 @@
         @yield('content')
 
     	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
