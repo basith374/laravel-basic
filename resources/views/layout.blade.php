@@ -27,7 +27,7 @@
         @if($settings['pinterest_verification'])
         <meta name="p:domain_verify" content="{{ $settings['pinterest_verification'] }}" />
         @endif
-        <title>Example | @yield('title')</title>
+        <title>Example{{ isset($title) ? ' | ' . $title : '' }}</title>
         <link rel="icon" href="{{ asset('/favicon.png') }}">
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link rel="apple-touch-icon" href="{{ asset('/apple-touch-icon.png') }}">
