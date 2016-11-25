@@ -14,8 +14,7 @@ class HomeController extends Controller
 {
     
     public function getMigrate() {
-    	\Artisan::call('migrate');
-        \Artisan::call('db:seed');
+    	\Artisan::call('migrate', ['--seed' => true]);
     	echo 'migrated&seeded';
     }
     
