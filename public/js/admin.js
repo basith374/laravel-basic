@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	$('[data-toggle=tooltip]').tooltip();
+	
+	var resource_url = '/portfolio';
+	var complete_text = 'Loading Complete';
+	var empty_text = 'No Items';
+	var idle_text = 'Older...';
 
 	function isElementInViewport(elem) {
 	    var $elem = $(elem);
@@ -26,13 +31,13 @@ $(document).ready(function() {
 		$elem.find('.loader').remove();
 		if(input.length == 0) {
 			finished = true;
-			$elem.append($('<div>').addClass('msg').text(count ? 'Loading Complete' : 'No Items'));
+			$elem.append($('<div>').addClass('msg').text(count ? complete_text : empty_text));
 		} else {
 			if(input.length < 7) {
 				finished = true;
-				$elem.append($('<div>').addClass('msg').text('Loading Complete'));
+				$elem.append($('<div>').addClass('msg').text(complete_text));
 			} else {
-				$elem.append($('<div>').addClass('msg').text('Older...'));
+				$elem.append($('<div>').addClass('msg').text(idle_text));
 			}
 			$.each(input, function(k, v) {
 				v.selected = ko.observable(false);
@@ -58,7 +63,7 @@ $(document).ready(function() {
 		        	console.log('loading more')
 			        $elem.find('.msg').remove();
 			        $elem.append($('<div>').addClass('loader'));
-			        var url = '/portfolio';
+			        var url = resource_url;
 			        if(count) {
 			        	url += '?offset=' + count;
 			        }
@@ -79,7 +84,7 @@ $(document).ready(function() {
 		$elem = $("#show_more");
         $elem.find('.msg').remove();
         $elem.append($('<div>').addClass('loader').html('<span></span><span></span><span></span>'));
-		loading = $.get('/portfolio')
+		loading = $.get(resource_url)
 			.success(function(data) {
 				processInput(data.portfolio);
 				// console.log(portfolio.items())
