@@ -51,15 +51,15 @@
 		                            	<input type="hidden" name="_method" value="PATCH">
 		                            	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		                                <div class="form-group">
-		                                    <label class="control-label col-md-4" for="phone1">Phone 1 <span class="text-danger" title="Required">*</span></label>
+		                                    <label class="control-label col-md-4" for="phone1">Telephone <span class="text-danger" title="Required">*</span></label>
 		                                    <div class="col-md-8">
-		                                        <input type="text" name="phone1" class="form-control" value="{{ $settings['phone1'] or '' }}" required id="phone1">
+		                                        <input type="text" name="telephone" class="form-control" value="{{ $settings['telephone'] or '' }}" required id="phone1">
 		                                    </div>
 		                                </div>
 		                                <div class="form-group">
-		                                    <label class="control-label col-md-4" for="phone2">Phone 2</label>
+		                                    <label class="control-label col-md-4" for="phone2">Mobile </label>
 		                                    <div class="col-md-8">
-		                                        <input type="text" name="phone2" class="form-control" value="{{ $settings['phone2'] or '' }}" id="phone2">
+		                                        <input type="text" name="mobile" class="form-control" value="{{ $settings['mobile'] or '' }}" id="phone2">
 		                                    </div>
 		                                </div>
 		                                <div class="form-group">
