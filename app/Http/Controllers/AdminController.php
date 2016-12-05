@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Setting;
-use App\Gallery;
 use Validator;
 use App\User;
 
