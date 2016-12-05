@@ -83,6 +83,8 @@
     <script src="{{ asset('/js/vendor/jquery.validate.min.js') }}"></script>
 
     <script src="{{ asset('/js/admin.js') }}"></script>
+    
+    @yield('scripts')
 
 </body>
 
