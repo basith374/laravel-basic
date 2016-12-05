@@ -117,7 +117,7 @@ $(document).ready(function() {
 		var maxHeight = window.innerHeight - 50; // minus navbar height
 		var curHeight = pageWrapper.innerHeight();
 		if(curHeight < maxHeight) {
-			pageWrapper.css('height', maxHeight);
+			pageWrapper.css('min-height', maxHeight);
 		}
 		// Javascript to enable link to tab
 		var url = document.location.toString();
