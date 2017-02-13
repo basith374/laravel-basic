@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Next Login Admin Login</title>
+<title>Admin Login</title>
 <!-- Latest compiled and minified CSS -->
 <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
 <style type="text/css">
