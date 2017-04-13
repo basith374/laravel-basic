@@ -15,6 +15,27 @@ class AdminController extends Controller
 		$this->middleware('auth');
 	}
 
+	public function postGallery() {
+		$settings = Setting::pluck('value', 'name')->all();
+		if(!empty($settings['tinify_key'])) {
+			\Tinify\setKey($settings['tinify_key']);
+		}
+		if($request->hasFile('photo')){
+			$file = $request->file('photo');
+			$destination_path = '/uploads/';
+			$filename = uniqid() . '.' . $file->getClientOriginalExtension();
+			if(!empty($settings['tinify_key'])) {
+				$source = \Tinify\fromFile($file);
+				$source->toFile(public_path() . $destination_path . $filename);
+			} else {
+				$file->move(public_path() . $destination_path, $filename);
+			}
+			$image = $destination_path . $filename;
+            \DB::table('gallery')->insert(['image' => $image]);	
+        }
+		return back();			
+	}
+
 	public function getSettings() {
 		$settings = Setting::lists('value', 'name')->all();
 		return view('admin.settings', compact('settings'));
