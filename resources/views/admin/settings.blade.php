@@ -28,6 +28,9 @@
 	                        <li>
 	                            <a href="#social" data-toggle="tab">Social Links</a>
 	                        </li>
+	                        <li>
+	                            <a href="#seo" data-toggle="tab">SEO &amp; Utilities</a>
+	                        </li>
 	                    </ul>
 	                    <div id="msg" style="display:none;">
                     	@if(Session::has("success"))
@@ -117,6 +120,44 @@
 		                                    </div>
 		                                </div>
 		                                @endforeach
+		                                <div class="form-group">
+		                                    <div class="col-md-8 col-md-offset-4">
+		                                        <button type="submit" class="btn btn-success">Save</button>
+		                                    </div>
+		                                </div>
+		                            </form>
+		                        </div>
+	                        </div>
+
+	                        <div class="tab-pane fade" id="seo">
+		                        <div class="col-lg-6">
+		                            <form class="form-horizontal" action="{{ url('/admin/settings') }}" method="POST">
+		                            	<input type="hidden" name="_method" value="PATCH">
+		                            	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		                                <div class="form-group">
+		                                    <label class="control-label col-md-4" for="google_analytics">Google Analytics Key</label>
+		                                    <div class="col-md-8">
+		                                        <input type="text" name="google_analytics" class="form-control" value="{{ $settings['google_analytics'] or '' }}" id="google_analytics">
+		                                    </div>
+		                                </div>
+		                                <div class="form-group">
+		                                    <label class="control-label col-md-4" for="google_verification">Google Site Verification</label>
+		                                    <div class="col-md-8">
+		                                        <input type="text" name="google_verification" class="form-control" value="{{ $settings['google_verification'] or '' }}" id="google_verification">
+		                                    </div>
+		                                </div>
+		                                <div class="form-group">
+		                                    <label class="control-label col-md-4" for="bing_verification">Bing Site Verification</label>
+		                                    <div class="col-md-8">
+		                                        <input type="text" name="bing_verification" class="form-control" value="{{ $settings['bing_verification'] or '' }}" id="bing_verification">
+		                                    </div>
+		                                </div>
+		                                <div class="form-group">
+		                                    <label class="control-label col-md-4" for="pinterest_verification">Pinterest Site Verification</label>
+		                                    <div class="col-md-8">
+		                                        <input type="text" name="pinterest_verification" class="form-control" value="{{ $settings['pinterest_verification'] or '' }}" id="pinterest_verification">
+		                                    </div>
+		                                </div>
 		                                <div class="form-group">
 		                                    <div class="col-md-8 col-md-offset-4">
 		                                        <button type="submit" class="btn btn-success">Save</button>
