@@ -16,8 +16,11 @@ $(document).ready(function() {
 		};
 	};
 
-	// Capture scroll events
-	$(window).scroll(debounce(checkAnimation, 250));
+	function resizeWrapper() {
+		$('#page-wrapper').css('min-height', window.innerHeight - 50);
+	}
+
+	$(window).resize(debounce(resizeWrapper, 250));
 
 	if(window.location.pathname.endsWith('settings')) {
 		// fix height

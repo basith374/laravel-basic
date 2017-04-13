@@ -18,7 +18,14 @@ class MinimalSeeder extends Seeder
         	['name' => 'telephone', 'value' => '0497-123456'],
         	['name' => 'mobile', 'value' => '09876 543 210'],
         	['name' => 'email', 'value' => 'info@brand.com'],
-        	['name' => 'social', 'value' => '[{"id":"facebook","icon":"/img/social/facebook.png","label":"Facebook"},{"id":"twitter","icon":"/img/social/twitter.png","label":"Twitter"},{"id":"google","icon":"/img/social/google-plus.png","label":"Google Plus"},{"id":"pinterest","icon":"/img/social/pinterest.png","label":"Pinterest"},{"id":"instagram","icon":"/img/social/instagram.png","label":"Instagram"},{"id":"linkedin","icon":"/img/social/linkedin.png","label":"LinkedIn"}]'],
+        	['name' => 'social', 'value' => json_encode([
+                ['id' => 'facebook', 'icon' => '/img/social/facebook.png', 'label' => 'Facebook'],
+                ['id' => 'twitter', 'icon' => '/img/social/twitter.png', 'label' => 'Twitter'],
+                ['id' => 'google', 'icon' => '/img/social/google-plus.png', 'label' => 'Google Plus'],
+                ['id' => 'pinterest', 'icon' => '/img/social/pinterest.png', 'label' => 'Pinterest'],
+                ['id' => 'instagram', 'icon' => '/img/social/instagram.png', 'label' => 'Instagram'],
+                ['id' => 'linkedin', 'icon' => '/img/social/linkedin.png', 'label' => 'LinkedI'],
+            ])],
             ['name' => 'facebook', 'value' => ''],
             ['name' => 'twitter', 'value' => ''],
             ['name' => 'google', 'value' => ''],
@@ -29,6 +36,7 @@ class MinimalSeeder extends Seeder
             ['name' => 'google_verification', 'value' => ''],
             ['name' => 'bing_verification', 'value' => ''],
             ['name' => 'pinterest_verification', 'value' => '']
+            ['name' => 'tinify_key', 'value' => '']
      	]);
     }
 }
