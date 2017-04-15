@@ -47,7 +47,7 @@ class AdminController extends Controller
 	}
 
 	public function patchPassword(Request $request) {
-		$validator = Validator::make($request->only('password', 'password_confirmation'), ['password' => 'required|min:4|confirmed|alpha_num']);
+		$validator = Validator::make($request->only('password', 'password_confirmation'), ['password' => 'required|min:4|confirmed']);
 		if($validator->fails()) {
 			return redirect('/admin/settings#password')->withErrors($validator);
 		}
