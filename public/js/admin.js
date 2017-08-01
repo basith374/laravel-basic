@@ -22,41 +22,12 @@ $(document).ready(function() {
 
 	$(window).resize(debounce(resizeWrapper, 250));
 
-	if(window.location.pathname.endsWith('settings')) {
-		// fix height
-		var pageWrapper = $("#page-wrapper");
-		// console.log(pageWrapper.outerHeight())
-		// console.log(window.innerHeight)
-		var maxHeight = window.innerHeight - 50; // minus navbar height
-		var curHeight = pageWrapper.innerHeight();
-		if(curHeight < maxHeight) {
-			pageWrapper.css('min-height', maxHeight);
+	$('.nav-tabs a').on('shown.bs.tab', function (e) {
+		var page = e.target.hash.substr(1);
+		window.history.replaceState(null, null, location.pathname + '?page=' + page);
+		if(page == 'map') {
+			// refresh map
+			google.maps.event.trigger(window.map, 'resize');
 		}
-		// Javascript to enable link to tab
-		var url = document.location.toString();
-		if (url.match('#')) {
-		    $('.nav-tabs a[href="#' + url.split('#')[1] + '"]').tab('show');
-		} 
-		// Change hash for page-reload
-		$('.nav-tabs a').on('shown.bs.tab', function (e) {
-		    window.location.hash = e.target.hash;
-		});
-		// show alert message
-		var message = $('#msg');
-		if(message.children().length) {
-			var hash = window.location.hash;
-			if(!hash) {
-				hash = '#contact';
-			}
-			$(hash).prepend(message.children());
-		}
-		var alerts = $(".alert");
-		if(alerts.length) {
-			setTimeout(function() {
-				alerts.fadeOut(function() {
-					$(this).remove();
-				});
-			}, 5000);
-		}
-	}
+	});
 });

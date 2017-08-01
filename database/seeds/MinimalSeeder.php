@@ -12,19 +12,25 @@ class MinimalSeeder extends Seeder
     public function run()
     {
     	DB::table('users')->delete();
-        App\User::create(['username' => 'admin', 'password' => bcrypt('admin')]);
+        App\User::create(['username' => 'admin', 'password' => bcrypt('admin'), 'name' => 'Admin']);
         DB::table('settings')->delete();
     	DB::table('settings')->insert([
-        	['name' => 'telephone', 'value' => '0497-123456'],
-        	['name' => 'mobile', 'value' => '09876 543 210'],
+            ['name' => 'brand', 'value' => 'Brand'],
+            ['name' => 'address', 'value' => 'SKR Complex, Banglore'],
+            ['name' => 'marker', 'value' => '13.0299335,77.559585'],
+            ['name' => 'map_zoom', 'value' => '3'],
+            ['name' => 'telephone', 'value' => '0497-123456'],
+            ['name' => 'telephone2', 'value' => '0497-123456'],
+            ['name' => 'mobile', 'value' => '09876 543 210'],
+            ['name' => 'mobile2', 'value' => '09876 543 210'],
         	['name' => 'email', 'value' => 'info@brand.com'],
         	['name' => 'social', 'value' => json_encode([
-                ['id' => 'facebook', 'icon' => '/img/social/facebook.png', 'label' => 'Facebook'],
-                ['id' => 'twitter', 'icon' => '/img/social/twitter.png', 'label' => 'Twitter'],
-                ['id' => 'google', 'icon' => '/img/social/google-plus.png', 'label' => 'Google Plus'],
-                ['id' => 'pinterest', 'icon' => '/img/social/pinterest.png', 'label' => 'Pinterest'],
-                ['id' => 'instagram', 'icon' => '/img/social/instagram.png', 'label' => 'Instagram'],
-                ['id' => 'linkedin', 'icon' => '/img/social/linkedin.png', 'label' => 'LinkedI'],
+                ['id' => 'facebook', 'icon' => 'fa fa-facebook', 'label' => 'Facebook'],
+                ['id' => 'twitter', 'icon' => 'fa fa-twitter', 'label' => 'Twitter'],
+                ['id' => 'google', 'icon' => 'fa fa-google-plus', 'label' => 'Google Plus'],
+                ['id' => 'pinterest', 'icon' => 'fa fa-pinterest', 'label' => 'Pinterest'],
+                ['id' => 'instagram', 'icon' => 'fa fa-instagram', 'label' => 'Instagram'],
+                ['id' => 'linkedin', 'icon' => 'fa fa-linkedin', 'label' => 'LinkedIn'],
             ])],
             ['name' => 'facebook', 'value' => ''],
             ['name' => 'twitter', 'value' => ''],

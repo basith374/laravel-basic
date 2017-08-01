@@ -29,5 +29,20 @@ class ComposerServiceProvider extends ServiceProvider
             $settings = Setting::lists('value', 'name');
             $view->with('settings', $settings);
         });
+        View::composer('admin.layout', function($view) {
+            $links = [
+                [
+                    'text' => 'Gallery',
+                    'link' => 'admin/gallery',
+                    'icon' => 'glyphicon glyphicon-picture',
+                ],
+                [
+                    'text' => 'Settings',
+                    'link' => 'admin/settings',
+                    'icon' => 'glyphicon glyphicon-wrench',
+                ],
+            ];
+            $view->with('links', $links);
+        });
     }
 }

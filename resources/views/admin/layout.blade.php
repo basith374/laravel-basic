@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf_token" content="{{ csrf_token() }}">
 
-    <title>Brand | @yield('title')</title>
+    <title>{{ $settings['brand'] }} | @yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -19,6 +19,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('/css/admin.css') }}" rel="stylesheet">
 
+    @yield('head')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -42,23 +43,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">Admin Panel</a>
+                <a class="navbar-brand" href="{{ url('/') }}">{{ $settings['brand'] }} Admin Panel</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                <li>
-                    <a href="{{ url('/logout') }}" title="Logout" data-toggle="tooltip" data-placement="bottom">{{ auth()->user()->name }} <i class="glyphicon glyphicon-log-out"></i></a>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> {{ auth()->user()->name }}</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ url('/logout') }}"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="{{ url('/admin/gallery') }}"><i class="fa fa-fw fa-dashboard"></i> Gallery</a>
+                    @foreach($links as $l)
+                    <li{{ starts_with(Request::path(), $l['link']) ? ' class=active' : '' }}>
+                        <a href="{{ url($l['link']) }}"><i class="{{ $l['icon'] }}"></i>&nbsp;&nbsp;{{ $l['text'] }}</a>
                     </li>
-                    <li>
-                        <a href="{{ url('/admin/settings') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Settings</a>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
